@@ -1,0 +1,11 @@
+1/15/2023 11:19:24 AM Path cannot be null. (Parameter 'path')
+1/15/2023 11:25:54 AM LeArquivo-File exists-Path cannot be null. (Parameter 'path')
+1/15/2023 11:30:31 AM LeArquivo-File exists-Path cannot be null. (Parameter 'path')
+1/15/2023 11:31:40 AM LeArquivo-File exists-Path cannot be null. (Parameter 'path')
+1/15/2023 11:32:58 AM LeArquivo-File exists-Path cannot be null. (Parameter 'path')
+1/15/2023 11:37:36 AM LeArquivo-File exists-Path cannot be null. (Parameter 'path')
+1/15/2023 11:38:26 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
+1/15/2023 11:43:51 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
+1/15/2023 11:44:09 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
+1/15/2023 11:45:05 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
+1/15/2023 11:46:19 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.

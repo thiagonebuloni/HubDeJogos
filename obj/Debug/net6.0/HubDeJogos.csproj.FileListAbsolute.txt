@@ -1,0 +1,15 @@
+/home/thiago/Documents/csharp/aulas/HubDeJogos/bin/Debug/net6.0/HubDeJogos
+/home/thiago/Documents/csharp/aulas/HubDeJogos/bin/Debug/net6.0/HubDeJogos.deps.json
+/home/thiago/Documents/csharp/aulas/HubDeJogos/bin/Debug/net6.0/HubDeJogos.runtimeconfig.json
+/home/thiago/Documents/csharp/aulas/HubDeJogos/bin/Debug/net6.0/HubDeJogos.dll
+/home/thiago/Documents/csharp/aulas/HubDeJogos/bin/Debug/net6.0/HubDeJogos.pdb
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.csproj.AssemblyReference.cache
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.GeneratedMSBuildEditorConfig.editorconfig
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.AssemblyInfoInputs.cache
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.AssemblyInfo.cs
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.csproj.CoreCompileInputs.cache
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.dll
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/refint/HubDeJogos.dll
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.pdb
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/HubDeJogos.genruntimeconfig.cache
+/home/thiago/Documents/csharp/aulas/HubDeJogos/obj/Debug/net6.0/ref/HubDeJogos.dll
