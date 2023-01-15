@@ -35,7 +35,7 @@ namespace HubDeJogos.JogoDaVelha {
                     case 0:
                         break;
                     case 1:
-                        Console.WriteLine("Mostrando jogadores(a) ");
+                        Console.WriteLine("Mostrando jogadores(a)  ");
                         Console.ReadKey();
                         break;
                     case 2:
