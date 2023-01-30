@@ -1,4 +1,4 @@
-namespace HubDeJogos.JogoDaVelha.Utils {
+namespace HubDeJogos.Views {
 
     public class Interface {
 
@@ -60,7 +60,28 @@ namespace HubDeJogos.JogoDaVelha.Utils {
         }
 
 
-        public static void IMostraTabuleiroAtual(string[,] posicoes)
+        public static void IMostraTabuleiroAtualBN(string[,] posicoes)
+        {   
+            Console.Clear();
+            Console.WriteLine("");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            
+            Console.WriteLine("");
+
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    Console.Write("|");
+                    Console.Write($"{posicoes[i,j]}");
+                }
+                Console.WriteLine("|");
+            }
+            Console.ResetColor();
+            Console.Write("");
+
+
+        }
+
+        public static void IMostraTabuleiroAtualJV(string[,] posicoes)
         {   
             Console.Clear();
             Console.WriteLine("");

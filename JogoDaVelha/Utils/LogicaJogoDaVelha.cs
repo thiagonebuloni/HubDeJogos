@@ -1,12 +1,16 @@
+using HubDeJogos.JogoDaVelha.Utils;
+using HubDeJogos.Views;
+
 namespace HubDeJogos.JogoDaVelha.Utils {
     
     
-    public class LogicaJogo {
+    public class LogicaJogoDaVelha {
 
         public static void Jogar(List<Jogador> jogadores, string fullPath) {
             
             int indexJogadorAtivo1 = -1;
             int indexJogadorAtivo2 = -1;
+            
 
             // se não existirem jogadores registrados, cria 2 novos
             if (jogadores.Count() == 0)
@@ -18,7 +22,7 @@ namespace HubDeJogos.JogoDaVelha.Utils {
             }
             else if ( jogadores.Count() == 1)
             {   // se existir apenas 1 jogador criado, cria o segundo
-                Jogador novoJogador = new Jogador("Jogador(a) 2", 0, 0, 0);
+                Jogador.RegistrarJogador(jogadores, 1);
             }
             else    // seleciona jogadores já cadastrados
             {
@@ -108,7 +112,7 @@ namespace HubDeJogos.JogoDaVelha.Utils {
             while (true) {
                 // laço para impedir selecionar mesma casa
                 do {
-                    Interface.IMostraTabuleiroAtual(posicoes);
+                    Interface.IMostraTabuleiroAtualJV(posicoes);
 
                     if (jogadorTurno == "X") Interface.ICores($"\n{jogadores[indexJogadorAtivo1].NomeJogador} [{jogadorTurno}], escolha um número: ", ConsoleColor.Blue);
                     else Interface.ICores($"\n{jogadores[indexJogadorAtivo2].NomeJogador} [{jogadorTurno}], escolha um número: ", ConsoleColor.Red);
@@ -127,13 +131,13 @@ namespace HubDeJogos.JogoDaVelha.Utils {
                 if (resultado == -1) {
                     jogadores[indexJogadorAtivo1].IncrementaEmpates();
                     jogadores[indexJogadorAtivo2].IncrementaEmpates();
-                    Interface.IMostraTabuleiroAtual(posicoes);
+                    Interface.IMostraTabuleiroAtualJV(posicoes);
                     Interface.ICores("\nIh deu velha!", ConsoleColor.Red);
                     Console.ReadKey();
                     break;
                 }
                 else if (resultado == 1) { 
-                    Interface.IMostraTabuleiroAtual(posicoes);
+                    Interface.IMostraTabuleiroAtualJV(posicoes);
                     if (jogadorTurno == "X") {              // se jogador 1 ganhar
                         jogadores[indexJogadorAtivo1].IncrementaVitorias();
                         jogadores[indexJogadorAtivo2].IncrementaDerrotas();
@@ -149,15 +153,13 @@ namespace HubDeJogos.JogoDaVelha.Utils {
                     break;
                 }
 
-                // atualiza arquivo quando terminar cada jogo.
-
                 // alterna turnos
                 if (jogadorTurno == "X") jogadorTurno = "O";
                 else jogadorTurno = "X";
             }
             
             Jogador.OrdenarJogadores(jogadores);
-            ManipulaArquivo.AtualizaArquivo(jogadores, fullPath);
+            ManipulaArquivo.AtualizaArquivo(jogadores);
             
         }
 

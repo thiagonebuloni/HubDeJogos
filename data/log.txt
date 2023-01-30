@@ -9,3 +9,4 @@
 1/15/2023 11:44:09 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
 1/15/2023 11:45:05 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
 1/15/2023 11:46:19 AM LeArquivo-File exists-The process cannot access the file '/home/thiago/Documents/csharp/aulas/HubDeJogos/data/ranking.json' because it is being used by another process.
+1/30/2023 7:38:31 PM LeArquivo-File exists-The JSON value could not be converted to HubDeJogos.Jogador. Path: $[0].Senha | LineNumber: 0 | BytePositionInLine: 41.

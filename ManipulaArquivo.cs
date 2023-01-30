@@ -1,14 +1,24 @@
 using System.Text.Json;
 
-namespace HubDeJogos.JogoDaVelha.Utils {
+namespace HubDeJogos {
 
     
     public class ManipulaArquivo
     {
     
         public static string path = @"data/";
+        public static string file = @"ranking.json";
+        public static string Log = @"data/log.txt";
 
-        public static void LeArquivo(List<Jogador> jogadores, string fullPath)
+
+        public static string Arquivo(string path, string file)
+        {
+            return System.IO.Path.Combine(path, file);
+        }
+
+        static string fullPath = Arquivo(path, file);
+
+        public static void LeArquivo(List<Jogador> jogadores)
         {
 
             // verifica existencia da pasta data
@@ -43,7 +53,7 @@ namespace HubDeJogos.JogoDaVelha.Utils {
                 if (!String.IsNullOrEmpty(jsonString))
                 {
                     List<Jogador> listaJogadores = JsonSerializer.Deserialize<List<Jogador>>(jsonString)!;
-                    listaJogadores.ForEach(jogador => jogadores.Add(jogador));    
+                    listaJogadores.ForEach(jogador => jogadores.Add(jogador));
                 }
                 
             }
@@ -65,7 +75,7 @@ namespace HubDeJogos.JogoDaVelha.Utils {
         }
 
 
-        public static void AtualizaArquivo(List<Jogador> jogadores, string fullPath)
+        public static void AtualizaArquivo(List<Jogador> jogadores)
         {            
             string jsonString = JsonSerializer.Serialize(jogadores);
 

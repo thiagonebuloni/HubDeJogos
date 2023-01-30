@@ -1,10 +1,10 @@
-using HubDeJogos.JogoDaVelha.Utils;
+using HubDeJogos.BatalhaNaval.Utils;
 using HubDeJogos.Views;
 using System.Text.Json;
 
-namespace HubDeJogos.JogoDaVelha {
+namespace HubDeJogos.BatalhaNaval;
 
-    public class InicioJV
+    public class InicioBN
     {
 
         public static string path = @"data/";
@@ -17,18 +17,17 @@ namespace HubDeJogos.JogoDaVelha {
         }
 
         string fullPath = Arquivo();
-        
-        public void JogoDaVelhaInicio()
+
+        public void BatalhaNavalInicio()
         {
 
-            // Criando listas de usuários
-            List<Jogador> jogadores = new List<Jogador>();            
+            List<Jogador> jogadores = new List<Jogador>();
+            
 
             
             ManipulaArquivo.LeArquivo(jogadores);
 
-
-            int opcao = 1;
+            int opcao = -1;
             do
             {
                 Interface.IShowMenu();
@@ -48,7 +47,7 @@ namespace HubDeJogos.JogoDaVelha {
                     case 0:
                         break;
                     case 1:
-                        LogicaJogoDaVelha.Jogar(jogadores, fullPath);
+                        LogicaBatalhaNaval.Jogar(jogadores);
                         break;
                     case 2:
                         Jogador.RegistrarJogador(jogadores, jogadores.Count());
@@ -64,8 +63,6 @@ namespace HubDeJogos.JogoDaVelha {
                     
 
             } while (opcao != 0);
-            
-        }
 
-    }
+        }
 }
