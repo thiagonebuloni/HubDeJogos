@@ -15,7 +15,7 @@ namespace HubDeJogos.JogoDaVelha {
 
             List<Jogador> jogadores = new List<Jogador>();
             ManipulaArquivo.LeArquivo(jogadores);
-            List<int> jogadorLogin = new List<int>();
+            List<string> jogadoresLogin = new List<string>();
             bool isLogged = false;
         
             int opcao = -1;
@@ -23,13 +23,16 @@ namespace HubDeJogos.JogoDaVelha {
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("[1] - Ver Jogadores(a)");
-                Console.WriteLine("[2] - Registrar jogadores(a)");
-                Console.WriteLine("[3] - Jogo da Velha");
-                Console.WriteLine("[4] - Batalha Naval");
-                Console.WriteLine("[0] - Sair\n");
+                Console.WriteLine("[1] - Ver ranking de Jogadores(as)");
+                Console.WriteLine("[2] - Registrar jogadores(as)");
+                Interface.ICores("[3] - Jogo da Velha\n", ConsoleColor.Yellow);
+                Interface.ICores("[4] - Batalha Naval\n", ConsoleColor.Yellow);
+                Interface.ICores("[5] - Login\n", ConsoleColor.DarkGreen);
+                Interface.ICores("[6] - Logout\n", ConsoleColor.DarkGreen);
+                Interface.ICores("[0] - Sair\n", ConsoleColor.DarkGreen);
 
-                Console.Write("Escolha: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("\nEscolha: ");
                 try
                 {
                     opcao = int.Parse(Console.ReadLine()!);
@@ -54,27 +57,32 @@ namespace HubDeJogos.JogoDaVelha {
                         Jogador.RegistrarJogador(jogadores, jogadores.Count());
                         break;
                     case 3:
-                        InicioJV jogoDaVelha = new InicioJV();
-                        jogoDaVelha.JogoDaVelhaInicio();
+                        if (Jogador.IsLogged(jogadores, jogadoresLogin))
+                        {
+                            InicioJV jogoDaVelha = new InicioJV();
+                            jogoDaVelha.JogoDaVelhaInicio();
+                        }
+                        else
+                        {
+                            Jogador.Login(jogadores, jogadoresLogin);
+                        }
                         break;
                     case 4:
-                        if (Jogador.IsLogged(jogadores, jogadorLogin))
+                        if (Jogador.IsLogged(jogadores, jogadoresLogin))
                         {
-                            // LogicaBatalhaNaval batalhaNaval = new LogicaBatalhaNaval();
                             BatalhaNaval.InicioBN batalhaNaval = new BatalhaNaval.InicioBN();
                             batalhaNaval.BatalhaNavalInicio();
                         }
                         else
                         {
-                            Jogador.Login(jogadores, jogadorLogin);
+                            Jogador.Login(jogadores, jogadoresLogin);
                         }
                         break;
                     case 5:
-                        Console.WriteLine("Login");
-                        isLogged = Jogador.IsLogged(jogadores, jogadorLogin);
+                        isLogged = Jogador.IsLogged(jogadores, jogadoresLogin);
                         break;
                     case 6:
-                        Console.WriteLine("Ranking");
+                        Jogador.Logout(jogadoresLogin);
                         break;
                     default:
                         Interface.ICores("Opção inválida. Aperte enter para tentar novamente.", ConsoleColor.Red);

@@ -149,7 +149,7 @@ public class Jogador
             }
 
             Console.WriteLine("\nJogadores" + tab + "| Vitórias");
-            Console.WriteLine("=================================================================");
+            Console.WriteLine("===================================");
 
             for (int i = 0; i < jogadores.Count(); i++) {
                 // alterna cores na tabela
@@ -158,15 +158,15 @@ public class Jogador
 
                 if (jogadores[i].NomeJogador.Length > 14)
                 {
-                    Console.WriteLine($"{jogadores[i].NomeJogador}");
+                    Console.WriteLine($"{jogadores[i].NomeJogador}{tab}| {jogadores[i].Vitorias}");
                 }
                 else if (jogadores[i].NomeJogador.Length < 8)
                 {
-                    Console.WriteLine($"{jogadores[i].NomeJogador}");
+                    Console.WriteLine($"{jogadores[i].NomeJogador}{tab}\t| {jogadores[i].Vitorias}");
                 }
                 else
                 {
-                    Console.WriteLine($"{jogadores[i].NomeJogador}");
+                    Console.WriteLine($"{jogadores[i].NomeJogador}{tab}| {jogadores[i].Vitorias}");
                 }
                 
             }
@@ -176,25 +176,36 @@ public class Jogador
         }
 
 
-        public static bool IsLogged(List<Jogador> jogadores, List<int> jogadorLogin)
+        public static bool IsLogged(List<Jogador> jogadores, List<string> jogadorLogin)
         {
-
-            if (jogadores.Count != 0)
+            Console.Write("Digite seu nome de usuário: ");
+            string nomeParaApresentar = Console.ReadLine()!;
+            for (int i = 0; i < jogadorLogin.Count; i++) {
+                if (nomeParaApresentar == jogadorLogin[i])
+                {
+                    Interface.ICores("\nJogador já está logado.", ConsoleColor.Green);
+                    Console.ReadKey();
+                    return true;
+                }
+            }
+            
+            if (Login(jogadores, jogadorLogin, nomeParaApresentar))
             {
-                Interface.ICores("\nJogador já está logado.", ConsoleColor.Green);
-                Console.ReadKey();
                 return true;
             }
-            else if (Login(jogadores, jogadorLogin)) return true;
             else return false;
 
         }
 
-        public static bool Login(List<Jogador> jogadores, List<int> jogadorLogin)
+        public static bool Login(List<Jogador> jogadores, List<string> jogadorLogin, string nomeParaApresentar = "")
         {
             
-            Console.Write("Digite seu nome de usuário: ");
-            string nomeParaApresentar = Console.ReadLine()!;
+            if (String.IsNullOrEmpty(nomeParaApresentar))
+            {
+                Console.Write("Digite seu nome de usuário: ");
+                nomeParaApresentar = Console.ReadLine()!;
+            }
+
             int indexParaPesquisar = -1;
             for (int i  = 0; i < jogadores.Count(); i++)
             {
@@ -215,6 +226,8 @@ public class Jogador
                 "Pressione qualquer tecla para voltar."
                 , ConsoleColor.Red);
                 Console.ReadKey();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
                 return false;
             }
             else
@@ -223,8 +236,10 @@ public class Jogador
                 string senhaParaComparar = GetPass();
                 if (senhaParaComparar == jogadores[indexParaPesquisar].Senha)
                 {
-                    // jogadorLogin.Add(1);
-                    jogadorLogin.Add(indexParaPesquisar);
+                    jogadorLogin.Add(jogadores[indexParaPesquisar].NomeJogador);
+                    Console.WriteLine($"\n{jogadores[indexParaPesquisar].NomeJogador} logado(a).");
+                    Console.WriteLine("\nAperte enter para continuar...");
+                    Console.ReadKey();
                     return true;
                 }
                 else if (senhaParaComparar != jogadores[indexParaPesquisar].Senha)
@@ -237,6 +252,21 @@ public class Jogador
             }
             
         }
+
+        public static void Logout(List<string> jogadorLogin)
+        {
+            if (!(jogadorLogin.Count() <= 0))
+            {
+                jogadorLogin.Clear();
+                Console.WriteLine("\nContas deslogadas com sucesso.\nAperte enter para continuar...");
+            }
+            else
+            {
+                Console.WriteLine("\nNenhuma conta logada.\nAperte enter para continuar...");
+            }
+            Console.ReadKey();
+        }
+        
         
 }
 
